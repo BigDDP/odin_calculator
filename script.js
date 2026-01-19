@@ -1,18 +1,20 @@
 const container = document.querySelector("#container")
 
 function generateCalculator() {
-    for (i=1; i<4; i++) {
+    let num = 1
+    for (i=0; i<3; i++) {
         const row = document.createElement("div");
         row.id = `row${i}`;
         row.className = "row";
         container.appendChild(row);
-        for (j=1; j<4; j++) {
+        for (j=0; j<3; j++) {
             const cell = document.createElement("button");
-            cell.id = `cell${i*j}`;
-            cell.value = `${i*j}`;
+            cell.id = `cell${num}`;
+            cell.value = `${num}`;
             cell.className = "cell";
-            cell.textContent = `${i*j}`;
+            cell.textContent = `${num}`;
             row.appendChild(cell);
+            num++
         }
     }
     const cell0 = document.createElement("button");
@@ -22,12 +24,41 @@ function generateCalculator() {
     cell0.textContent = '0'
     container.appendChild(cell0);
 
-    const value = document.querySelectorAll(".cell")
 }
 
 generateCalculator();
 
-const calculation = {}
+const btnValues = document.querySelectorAll(".cell")
+
+const screen = document.querySelector(".calcScreen");
+
+const calcPlaceholder = document.querySelector("#calcPlaceholder")
+
+const calculation = []
+let currentNumber = ""
+
+btnValues.forEach(btnValue => { 
+    (btnValue.addEventListener("click", () => {
+        console.log(btnValue.value)
+
+        const isInt = /^\d$/.test(btnValue.value)
+        console.log(isInt)
+
+        if (isInt) {
+            currentNumber = `${currentNumber}` + `${btnValue.value}`;
+
+            console.log(calculation.join(currentNumber))
+        } else {
+            calculation.push(currentNumber)
+            calculation.push(btnValue.value)
+            currentNumber = ""
+        }
+
+        calcPlaceholder.textContent = calculation.join(' ') + " " + currentNumber
+        screen.scrollLeft = screen.scrollWidth;
+
+        console.log(calculation)
+}))});
 
 const submit = document.querySelector("#submit");
 submit.addEventListener("click", operate(calculation.int1, calculation.int2, calculation.op));

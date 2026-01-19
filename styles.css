@@ -15,22 +15,22 @@ body {
 }
 
 p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  font-family: 'Digital-7', 'DS-Digital', 'Orbitron', monospace;
-  font-size: clamp(24px, 5vw, 18px);
-  font-weight: 400;
-  letter-spacing: 2px;
+    font-family: 'Digital-7', 'DS-Digital', 'Orbitron', monospace;
+    font-size: clamp(24px, 5vw, 18px);
+    font-weight: 400;
+    letter-spacing: 2px;
 
-  color: #9cffc7; /* calculator green */
-  text-align: right;
+    color: #9cffc7; /* calculator green */
+    text-align: right;
 
-  text-shadow:
-    0 0 6px rgba(156, 255, 199, 0.45),
-    0 0 14px rgba(156, 255, 199, 0.25);
+    text-shadow:
+        0 0 6px rgba(156, 255, 199, 0.45),
+        0 0 14px rgba(156, 255, 199, 0.25);
 
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 
@@ -60,7 +60,10 @@ p {
     padding: 18px 16px;
     background: rgba(0, 0, 0, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-    overflow: auto;
+    
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 /* Screen text/value */
@@ -78,6 +81,10 @@ p {
     background: transparent;
     border: none;
     outline: none;
+}
+
+.calcPlaceholder {
+    display: inline-block;
 }
 
 /* Buttons area */
