@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="/script.js"></script>
+    <script src="/script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="calcScreen">
+        <span class="calcValue">
+            <p id="placeholder">Enter Digits...</p>
+            <p id="integar1"></p>
+            <p id="operator"></p>
+            <p id="integar2"></p>
+        </span>
+    </div>
+    <span class="calcContainer">
+        <div id="container">
+            <!-- Calculator Content -->
+        </div>
+        <div class="calcButtons">
+            <button id="cell+" class="cell" value="+">+</button>
+            <button id="cell-" class="cell" value="-">-</button>
+            <button id="cell*" class="cell" value="*">*</button>
+            <button id="cell/" class="cell" value="/">/</button>
+        </div>
+    </span>
+    <button id="submit" class="submitBtn">Submit</button>
 </body>
 </html>

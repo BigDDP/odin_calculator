@@ -1,0 +1,170 @@
+/* Page */
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1220, #121a2b);
+    color: #e8eefc;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Digital-7', 'DS-Digital', 'Orbitron', monospace;
+  font-size: clamp(24px, 5vw, 18px);
+  font-weight: 400;
+  letter-spacing: 2px;
+
+  color: #9cffc7; /* calculator green */
+  text-align: right;
+
+  text-shadow:
+    0 0 6px rgba(156, 255, 199, 0.45),
+    0 0 14px rgba(156, 255, 199, 0.25);
+
+  white-space: nowrap;
+}
+
+
+/* Outer wrapper (optional) */
+.calcContainer {
+    width: min(380px, 416px);
+    padding: 18px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+/* Main calculator shell */
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    height: auto;
+    width: 100%;
+}
+
+/* Screen area */
+.calcScreen {
+    max-width: 416px;
+    width: 100%;
+    padding: 18px 16px;
+    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    overflow: auto;
+}
+
+/* Screen text/value */
+.calcValue {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 650;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    color: #f5f7ff;
+
+  /* If this is an input */
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Buttons area */
+.calcButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 60px;
+}
+
+/* Each row (if you’re grouping buttons in rows) */
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+/* Button cells */
+.cell {
+    width: 100%;
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.08);
+    color: #eef3ff;
+
+    border-radius: 14px;
+    padding: 14px 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    user-select: none;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    transform: translateY(-1px);
+}
+
+.cell:active {
+    transform: translateY(0px) scale(0.99);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* Optional: disabled look */
+.cell:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Submit / equals button */
+.submitBtn {
+    background: linear-gradient(180deg, rgba(116, 97, 255, 0.95), rgba(76, 60, 255, 0.92));
+    border: 1px solid rgba(140, 125, 255, 0.45);
+    box-shadow: 0 12px 26px rgba(76, 60, 255, 0.25);
+
+    font-size: xx-large;
+
+    max-width: 416px;
+    width: 100%;
+    height: 60px;
+}
+
+.submitBtn:hover {
+    background: linear-gradient(180deg, rgba(128, 110, 255, 0.98), rgba(86, 70, 255, 0.95));
+    box-shadow: 0 16px 34px rgba(76, 60, 255, 0.30);
+}
+
+.submitBtn:active {
+    box-shadow: 0 10px 22px rgba(76, 60, 255, 0.22);
+}
+
+/* Nice focus for keyboard users */
+.cell:focus-visible,
+.calcValue:focus-visible {
+    outline: 3px solid rgba(140, 125, 255, 0.55);
+    outline-offset: 2px;
+    border-radius: 14px;
+}
