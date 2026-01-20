@@ -41,24 +41,41 @@ btnValues.forEach(btnValue => {
     (btnValue.addEventListener("click", () => {
         console.log(btnValue.value)
 
-        const isInt = /^\d$/.test(btnValue.value)
-        console.log(isInt)
+        const isInt = /^\d$/.test(btnValue.value);
 
-        if (isInt) {
-            currentNumber = `${currentNumber}` + `${btnValue.value}`;
+        const prevInt = calculation.length < 1 && currentNumber !== "" 
+        || calculation.length >= 1 && currentNumber !== "" 
+        || /^\d$/.test(calculation.at(-1));
 
-            console.log(calculation.join(currentNumber))
+        console.log("Pressed Button: " + btnValue.value)
+        console.log("Pressed Button is number: " + isInt)
+        console.log("Last Item in Array: " + calculation.at(-1))
+        console.log("Array Length: " + calculation.length)
+        console.log("Last attached item is a number: " + prevInt)
+        console.log("currentNumber exists: " + `${currentNumber !== ""}`)
+
+        let isValid = currentNumber !== null && isInt || prevInt
+
+        if (isValid) {
+            if (isInt) {
+                currentNumber = `${currentNumber}` + `${btnValue.value}`;
+                console.log(calculation.join(currentNumber))
+            } else {
+                calculation.push(currentNumber)
+                calculation.push(btnValue.value)
+                currentNumber = ""
+            }
         } else {
-            calculation.push(currentNumber)
-            calculation.push(btnValue.value)
-            currentNumber = ""
+            console.log("Cant do that")
+            return;
         }
 
         calcPlaceholder.textContent = calculation.join(' ') + " " + currentNumber
         screen.scrollLeft = screen.scrollWidth;
 
         console.log(calculation)
-}))});
+    }))
+});
 
 const submit = document.querySelector("#submit");
 submit.addEventListener("click", operate(calculation.int1, calculation.int2, calculation.op));
