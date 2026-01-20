@@ -14,17 +14,22 @@
             <p id="calcPlaceholder">Enter Digits...</p>
         </span>
     </div>
-    <span class="calcContainer">
-        <div id="container">
-            <!-- Calculator Content -->
+        <div class="calcContainer">
+            <div id="container">
+                <!-- Calculator Content -->
+            </div>
+            <div class="calcButtons">
+                <button id="cell+" class="cell" value="+">+</button>
+                <button id="cell-" class="cell" value="-">-</button>
+                <button id="cell*" class="cell" value="*">*</button>
+                <button id="cell/" class="cell" value="/">/</button>
+            </div>
+            <div class="calcFooter">
+                <button id="backspace" class="cell" value="⌫">⌫</button>
+                <button class="cell" value=".">.</button>
+                <button id="clear" value="clear">Clear</button>
+            </div>
         </div>
-        <div class="calcButtons">
-            <button id="cell+" class="cell" value="+">+</button>
-            <button id="cell-" class="cell" value="-">-</button>
-            <button id="cell*" class="cell" value="*">*</button>
-            <button id="cell/" class="cell" value="/">/</button>
-        </div>
-    </span>
-    <button id="submit" class="submitBtn">Submit</button>
+        <button id="submit" class="submitBtn">=</button>
 </body>
 </html>
